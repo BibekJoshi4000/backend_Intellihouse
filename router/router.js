@@ -143,7 +143,7 @@ router.get("/sensorData", async function (req, res) {
         }
         res.status(200).json({
             "humidity": data.humidity,
-            "temperaturn": data.temperature
+            "temperature": data.temperature
 
         })
 
