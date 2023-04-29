@@ -5,6 +5,9 @@ var app = express()
 
 app.use(express.json())
 const uri = "mongodb+srv://rajritik200177:7s8BJdKOtwj2ItWc@intellihouse.mbsmbe2.mongodb.net/?retryWrites=true&w=majority";
+
+
+// mongoDB Connection
 mongoose.connect(uri)
 .then(()=>{
     console.log('Connected to DB');
