@@ -2,12 +2,12 @@ var express = require('express')
 var mongoose = require('mongoose')
 const route = require('./router/router')
 var app = express()
+var cors = require("cors");
+
 
 app.use(express.json())
+app.use(cors())
 const uri = "mongodb+srv://rajritik200177:7s8BJdKOtwj2ItWc@intellihouse.mbsmbe2.mongodb.net/?retryWrites=true&w=majority";
-
-
-// mongoDB Connection
 mongoose.connect(uri)
 .then(()=>{
     console.log('Connected to DB');
