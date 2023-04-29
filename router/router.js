@@ -4,8 +4,6 @@ const Model = require('../model/dbModel')
 const router = express.Router()
 const axios = require('axios');
 
-
-// add route 
 router.post('/add', async function (req, res) {
     const { relay1, relay2, relay3, relay4, humidity, temperature } = req.body
 
@@ -109,6 +107,26 @@ router.get("/relayData", async function (req, res) {
                 console.error(err);
             });
 
+
+            /// [Default Fetch method of Js]
+            // fetch("http://localhost:5000/api/v1/updateRelay", {
+            //     method: "PUT",
+
+            //     body: JSON.stringify(updateData)
+            // }).then(res => {
+            //     console.log(res.json());
+            // }).then((result) => {
+            //     return res.status(200).json({
+            //         "relay1": data.relay1,
+            //         "relay2": data.relay2,
+            //         "relay3": data.relay3,
+            //         "relay4": data.relay4,
+            //     })
+            // }).catch(err => {
+            //     console.log(err);
+            // })
+
+
         }
        else
        {
@@ -155,3 +173,4 @@ router.get("/sensorData", async function (req, res) {
 
 
 module.exports = router;
+
