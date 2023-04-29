@@ -93,7 +93,7 @@ router.get("/relayData", async function (req, res) {
                 "relay4": data.relay4
             }
             
-            axios.put("http://localhost:5000/api/v1/updateRelay",updateData).then((response)=>{
+            axios.put("https://intellihouse.cyclic.app/api/v1/updateRelay",updateData).then((response)=>{
                 console.log(`Status: ${response.status}`);
                 console.log('Body: ', response.data);
                 return res.status(200).json({
@@ -108,24 +108,7 @@ router.get("/relayData", async function (req, res) {
             });
 
 
-            /// [Default Fetch method of Js]
-            // fetch("http://localhost:5000/api/v1/updateRelay", {
-            //     method: "PUT",
-
-            //     body: JSON.stringify(updateData)
-            // }).then(res => {
-            //     console.log(res.json());
-            // }).then((result) => {
-            //     return res.status(200).json({
-            //         "relay1": data.relay1,
-            //         "relay2": data.relay2,
-            //         "relay3": data.relay3,
-            //         "relay4": data.relay4,
-            //     })
-            // }).catch(err => {
-            //     console.log(err);
-            // })
-
+            
 
         }
        else
@@ -173,4 +156,3 @@ router.get("/sensorData", async function (req, res) {
 
 
 module.exports = router;
-
