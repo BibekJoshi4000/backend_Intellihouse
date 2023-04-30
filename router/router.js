@@ -82,37 +82,37 @@ router.get("/relayData", async function (req, res) {
         if (!data) {
             return res.status(400).json({ error: 'No such Sensor' })
         }
-        var today = new Date()
-        if (today.getHours() >= 10) {
-            data.relay1 = "off"
-            data.relay2 = "off"
-            updateData = {
-                "relay1": data.relay1,
-                "relay2": data.relay2,
-                "relay3": data.relay3,
-                "relay4": data.relay4
-            }
+        // var today = new Date()
+        // if (today.getHours() >= 10) {
+        //     data.relay1 = "off"
+        //     data.relay2 = "off"
+        //     updateData = {
+        //         "relay1": data.relay1,
+        //         "relay2": data.relay2,
+        //         "relay3": data.relay3,
+        //         "relay4": data.relay4
+        //     }
             
-            axios.put("https://intellihouse.cyclic.app/api/v1/updateRelay",updateData).then((response)=>{
-                console.log(`Status: ${response.status}`);
-                console.log('Body: ', response.data);
-                return res.status(200).json({
-                                            "relay1": data.relay1,
-                                            "relay2": data.relay2,
-                                            "relay3": data.relay3,
-                                            "relay4": data.relay4,
-                                        })
+        //     axios.put("https://intellihouse.cyclic.app/api/v1/updateRelay",updateData).then((response)=>{
+        //         console.log(`Status: ${response.status}`);
+        //         console.log('Body: ', response.data);
+        //         return res.status(200).json({
+        //                                     "relay1": data.relay1,
+        //                                     "relay2": data.relay2,
+        //                                     "relay3": data.relay3,
+        //                                     "relay4": data.relay4,
+        //                                 })
 
-            }).catch((err) => {
-                console.error(err);
-            });
+        //     }).catch((err) => {
+        //         console.error(err);
+        //     });
 
 
             
 
-        }
-       else
-       {
+        // }
+    //    else
+    // {
         return res.status(200).json({
             "relay1": data.relay1,
             "relay2": data.relay2,
@@ -121,7 +121,7 @@ router.get("/relayData", async function (req, res) {
         })
     }
 
-    }
+    // }
     catch (error) {
          return res.status(400).json({ error: error.message })
     }
@@ -143,7 +143,7 @@ router.get("/sensorData", async function (req, res) {
         }
         res.status(200).json({
             "humidity": data.humidity,
-            "temperature": data.temperature
+            "temperaturn": data.temperature
 
         })
 
